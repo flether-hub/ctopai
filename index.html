@@ -1,321 +1,50 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="深圳云峰智算科技有限公司 - 专注于高性能计算基础设施与人工智能解决方案">
-    <title>深圳云峰智算科技有限公司</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>云峰智算科技有限公司</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'yf-cyan': '#00B5E2',
+              'yf-dark': '#005788',
+              'yf-navy': '#003355',
+              'yf-gray': '#F3F4F6',
+            }
+          }
+        }
+      }
+    </script>
     <style>
-        /* 全局重置与基础样式 */
-        :root {
-            --primary-color: #0f172a; /* 深蓝黑 - 沉稳 */
-            --accent-color: #3b82f6;  /* 科技蓝 - 亮点 */
-            --text-color: #334155;     /* 深灰 - 正文 */
-            --bg-light: #f8fafc;       /* 极淡灰 - 背景 */
-            --white: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--white);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* 布局容器 */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* 导航栏 */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            font-size: 0.95rem;
-            color: var(--text-color);
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Hero 区域 (去营销化，仅展示核心价值) */
-        .hero {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 160px 0 100px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* 通用板块样式 */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 60px;
-            font-weight: 600;
-        }
-
-        /* 关于我们 */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .stat-item {
-            background: var(--bg-light);
-            padding: 30px;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            color: var(--accent-color);
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        /* 核心业务 */
-        .bg-gray {
-            background-color: var(--bg-light);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 40px;
-            border: 1px solid #e2e8f0;
-            border-radius: 4px;
-            transition: transform 0.2s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-        }
-
-        .service-card h3 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .service-card p {
-            font-size: 0.95rem;
-            color: #64748b;
-        }
-
-        /* 页脚 */
-        footer {
-            background-color: var(--primary-color);
-            color: #94a3b8;
-            padding: 60px 0 20px;
-            font-size: 0.9rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h4 {
-            color: var(--white);
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .footer-col p {
-            margin-bottom: 10px;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #1e293b;
-        }
-
-        /* 移动端适配 */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .about-content { grid-template-columns: 1fr; }
-            .nav-links { display: none; } /* 极简模式下移动端可隐藏菜单或改为汉堡菜单，此处为保持静态简单直接隐藏 */
-            .logo { font-size: 1rem; }
-        }
+      body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+      .clip-triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
     </style>
+
+<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-CU98RgDn.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/vendor-react-CpSksbY6.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor-icons-D9ikp6kE.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor-recharts-DJzveljK.js">
 </head>
-<body>
-
-    <!-- 导航栏 -->
-    <header>
-        <div class="container nav-wrapper">
-            <div class="logo">深圳云峰智算科技有限公司</div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#about">关于我们</a></li>
-                    <li><a href="#services">核心业务</a></li>
-                    <li><a href="#contact">联系方式</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- 头部展示 -->
-    <section class="hero">
-        <div class="container">
-            <h1>构建高效能智能算力基础设施</h1>
-            <p>专注于为企业数字化转型提供可靠的底层算力支持与技术解决方案</p>
-        </div>
-    </section>
-
-    <!-- 关于我们 -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">关于云峰智算</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>深圳云峰智算科技有限公司立足于中国科技前沿城市——深圳。我们是一家专注于高性能计算（HPC）与人工智能（AI）基础设施建设的技术型企业。</p>
-                    <p>摒弃繁杂的营销概念，我们致力于解决实际的技术挑战。通过整合先进的硬件资源与优化的软件算法，为金融、科研、制造等行业客户提供稳定、安全、高效的算力服务。</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <h3>专业</h3>
-                        <p>技术团队驱动</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>稳定</h3>
-                        <p>企业级SLA保障</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 核心业务 -->
-    <section id="services" class="bg-gray">
-        <div class="container">
-            <h2 class="section-title">核心业务领域</h2>
-            <div class="services-grid">
-                <!-- 业务 1 -->
-                <div class="service-card">
-                    <h3>智能算力中心建设</h3>
-                    <p>提供从机房规划、硬件选型到集群部署的一站式算力基础设施建设服务，支持大规模并行计算需求。</p>
-                </div>
-                <!-- 业务 2 -->
-                <div class="service-card">
-                    <h3>企业私有云部署</h3>
-                    <p>基于云原生架构，协助企业构建安全可控的私有云环境，实现数据资产的本地化管理与高效调用。</p>
-                </div>
-                <!-- 业务 3 -->
-                <div class="service-card">
-                    <h3>AI 模型推理优化</h3>
-                    <p>针对特定行业大模型，提供推理加速与显存优化服务，降低企业应用人工智能技术的边际成本。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 页脚与联系方式 -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h4>联系我们</h4>
-                    <p>地址：深圳市南山区科技园（示例地址）</p>
-                    <p>邮箱：contact@yunfeng-smart.com</p>
-                    <p>电话：0755-XXXXXXXX</p>
-                </div>
-                <div class="footer-col">
-                    <h4>业务范围</h4>
-                    <p>算力租赁与托管</p>
-                    <p>系统集成服务</p>
-                    <p>技术咨询</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 深圳云峰智算科技有限公司 版权所有</p>
-            </div>
-        </div>
-    </footer>
-
+  <body>
+    <div id="root"></div>
 </body>
 </html>
